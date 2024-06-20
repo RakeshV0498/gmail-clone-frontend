@@ -1,76 +1,62 @@
 import { Container, Navbar, Nav, Button, Row, Col } from "react-bootstrap";
-import styled from "styled-components";
-import { FaGoogle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { BsFillPersonFill, BsBoxArrowInRight } from "react-icons/bs";
 import heroImage from "../assets/heroImg.webp";
-import { useNavigate } from "react-router-dom";
-
-const HeroSection = styled.section`
-  display: flex;
-  align-items: center;
-  padding: 50px 0;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-
-  .hero-content {
-    flex: 1;
-    padding: 20px;
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-  }
-
-  .hero-image {
-    flex: 1;
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
-`;
+import logo from "/gmail.svg";
 
 const Home = () => {
-  const navigate = useNavigate();
   return (
     <>
       <Navbar bg="light" expand="lg">
-        <Container>
-          <Navbar.Brand href={navigate("/")}>
-            <FaGoogle /> Gmail Clone
+        <Container fluid>
+          <Navbar.Brand as={Link} to="/">
+            <img
+              src={logo}
+              alt="gmail-logo"
+              style={{ height: "30px", marginRight: "10px" }}
+            />
+            Gmail Clone
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-end"
+          >
+            <Nav className="ml-auto gap-3">
               <Button variant="outline-primary" className="mr-2">
-                Login
+                <BsFillPersonFill /> Login
               </Button>
-              <Button variant="primary">Sign Up</Button>
+              <Button variant="primary">
+                <BsBoxArrowInRight /> Sign Up
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <HeroSection>
-        <Container>
-          <Row>
-            <Col md={6} className="hero-content">
-              <h1>Welcome to Gmail Clone</h1>
-              <p>Your simple and efficient email solution.</p>
-              <Button variant="primary">Get Started</Button>
-            </Col>
-            <Col md={6} className="hero-image">
-              <img src={heroImage} alt="Hero" />
-            </Col>
-          </Row>
-        </Container>
-      </HeroSection>
+      <Container fluid>
+        <Row className="align-items-center justify-content-center">
+          <Col md={6}>
+            <div className="text-center text-xl-start">
+              <h1 style={{ fontSize: "3.5rem" }}>
+                Secure, smart, and easy to use email
+              </h1>
+              <p style={{ fontSize: "1.5rem" }}>
+                Get more done with Gmail. Now integrated with Google Chat,
+                Google Meet, and more, all in one place.
+              </p>
+              <Button
+                variant="primary"
+                style={{ fontSize: "1.5rem", padding: "10px 20px" }}
+              >
+                Get Started
+              </Button>
+            </div>
+          </Col>
+          <Col md={6} className="mt-4 mt-md-0">
+            <img src={heroImage} alt="Hero" className="img-fluid" />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
