@@ -37,7 +37,10 @@ const Home = () => {
         <Row className="align-items-center justify-content-center">
           <Col md={6}>
             <div className="text-center text-xl-start">
-              <h1 style={{ fontSize: "3.5rem" }}>
+              <h1
+                className="text-wrap"
+                style={{ fontSize: "4.5rem", lineHeight: "1.2" }}
+              >
                 Secure, smart, and easy to use email
               </h1>
               <p style={{ fontSize: "1.5rem" }}>
