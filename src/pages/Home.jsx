@@ -7,7 +7,11 @@ import logo from "/gmail.svg";
 const Home = () => {
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar
+        bg="light"
+        expand="lg"
+        style={{ boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+      >
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             <img
