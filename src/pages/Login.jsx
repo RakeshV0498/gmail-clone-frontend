@@ -10,21 +10,38 @@ import {
 } from "react-bootstrap";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "/gmail.svg"; // Replace with your logo path
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { userSignIn } from "../apis/auth/login";
 
 const Login = () => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value });
+    setLoginData({ ...loginData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Form submitted:", formState);
+    localStorage.clear();
+    try {
+      const response = await userSignIn(loginData);
+      if (response.code === 1) {
+        localStorage.setItem("Authenticated", "true");
+        localStorage.setItem("token", response.user);
+        navigate("/");
+      } else {
+        setMessage(response.message || "Login failed");
+      }
+    } catch (error) {
+      setMessage(
+        error?.response?.data?.msg || "Something went wrong, try again later"
+      );
+    }
   };
 
   return (
@@ -54,13 +71,14 @@ const Login = () => {
           style={{ minHeight: "50vh" }}
         >
           <Form onSubmit={handleSubmit} style={{ maxWidth: "400px" }}>
+            {message && <div className="alert alert-danger">{message}</div>}
             <Form.Group controlId="formEmail" className="mb-3">
               <Form.Label>Email address</Form.Label>
               <InputGroup>
                 <FormControl
                   type="email"
                   name="email"
-                  value={formState.email}
+                  value={loginData.email}
                   onChange={handleChange}
                   placeholder="Enter email"
                   required
@@ -74,7 +92,7 @@ const Login = () => {
                 <FormControl
                   type={showPassword ? "text" : "password"}
                   name="password"
-                  value={formState.password}
+                  value={loginData.password}
                   onChange={handleChange}
                   placeholder="Password"
                   required
