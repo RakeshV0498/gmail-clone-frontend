@@ -5,15 +5,18 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import PasswordReset from "./pages/ResetPassword";
 
+import MyNavbar from "./pages/Navigationbar";
+
 const AppRoutes = () => {
   return (
     <BrowserRouter>
+      <MyNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password/:token" element={<PasswordReset />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/resetPassword/:token" element={<PasswordReset />} />
       </Routes>
     </BrowserRouter>
   );

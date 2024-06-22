@@ -1,59 +1,30 @@
-import { Container, Navbar, Nav, Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { BsFillPersonFill, BsBoxArrowInRight } from "react-icons/bs";
+import { Container, Button, Row, Col } from "react-bootstrap";
 import heroImage from "../assets/heroImg.webp";
-import logo from "/gmail.svg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
-      <Navbar
-        bg="light"
-        expand="lg"
-        style={{ boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
-      >
-        <Container fluid>
-          <Navbar.Brand as={Link} to="/">
-            <img
-              src={logo}
-              alt="gmail-logo"
-              style={{ height: "30px", marginRight: "10px" }}
-            />
-            Gmail Clone
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse
-            id="basic-navbar-nav"
-            className="justify-content-end"
-          >
-            <Nav className="ml-auto gap-3">
-              <Button variant="outline-primary" className="mr-2">
-                <BsFillPersonFill /> Login
-              </Button>
-              <Button variant="primary">
-                <BsBoxArrowInRight /> Sign Up
-              </Button>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
       <Container fluid>
         <Row className="align-items-center justify-content-center">
           <Col md={6}>
             <div className="text-center text-xl-start">
-              <h1
-                className="text-wrap"
-                style={{ fontSize: "4.5rem", lineHeight: "1.2" }}
-              >
+              <h1 className="text-wrap hero-title">
                 Secure, smart, and easy to use email
               </h1>
-              <p style={{ fontSize: "1.5rem" }}>
+              <p
+                className="hero-text"
+                style={{ maxWidth: "40rem", margin: "auto" }}
+              >
                 Get more done with Gmail. Now integrated with Google Chat,
                 Google Meet, and more, all in one place.
               </p>
               <Button
                 variant="primary"
-                style={{ fontSize: "1.5rem", padding: "10px 20px" }}
+                className="hero-button mt-3"
+                style={{ padding: "10px 20px" }}
+                as={Link}
+                to="/register"
               >
                 Get Started
               </Button>

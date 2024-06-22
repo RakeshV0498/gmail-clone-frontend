@@ -58,12 +58,13 @@ function PasswordReset() {
   }, [successMessage, navigate]);
 
   return (
-    <Container fluid className="vh-100 d-flex align-items-center p-0">
+    <Container fluid className="d-flex align-items-center p-0">
       <Row className="w-100 m-0">
         <Col
           md={6}
           xs={12}
           className="d-flex flex-column align-items-center justify-content-center p-2"
+          style={{ minHeight: "30vh" }}
         >
           <img
             src={logo}
@@ -71,10 +72,10 @@ function PasswordReset() {
             className="img-fluid"
             style={{ maxWidth: "150px" }}
           />
-          <h1>Forgot Your Password?</h1>
-          <p>
-            Don&apos;t worry, we&apos;ll help you reset it. Just enter your
-            email below and follow the instructions.
+          <h1>Reset Your Password</h1>
+          <p className="p-2 text-center fw-medium">
+            Don&apos;t worry, we&apos;ll help you reset it. Just enter your new
+            password.
           </p>
         </Col>
 

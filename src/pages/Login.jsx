@@ -28,22 +28,24 @@ const Login = () => {
   };
 
   return (
-    <Container fluid className="vh-100 d-flex align-items-center p-0">
-      <Row className="w-100 m-0 ">
+    <Container fluid className="d-flex align-items-center p-0">
+      <Row className="w-100">
         <Col
           xs={12}
           md={6}
-          className="d-flex flex-column align-items-center justify-content-center p-4  bg-light-subtle"
-          style={{ minHeight: "50vh", marginTop: "5rem" }}
+          className="d-flex flex-column align-items-center justify-content-center p-4 bg-light-subtle"
+          style={{ minHeight: "30vh" }}
         >
-          <img
-            src={logo}
-            alt="Logo"
-            className="img-fluid mt-3"
-            style={{ maxWidth: "150px" }}
-          />
-          <h1 className="text-center">Welcome Back!</h1>
-          <p className="text-center">Please login to your account.</p>
+          <Container className="d-flex flex-column align-items-center">
+            <img
+              src={logo}
+              alt="Logo"
+              className="img-fluid mt-2"
+              style={{ maxWidth: "150px" }}
+            />
+            <h1 className="text-center">Welcome Back!</h1>
+            <p className="text-center">Please login to your account.</p>
+          </Container>
         </Col>
         <Col
           xs={12}
@@ -51,11 +53,7 @@ const Login = () => {
           className="d-flex flex-column align-items-center justify-content-center bg-white p-4 shadow-lg fw-bold"
           style={{ minHeight: "50vh" }}
         >
-          <Form
-            onSubmit={handleSubmit}
-            className="w-100"
-            style={{ maxWidth: "400px" }}
-          >
+          <Form onSubmit={handleSubmit} style={{ maxWidth: "400px" }}>
             <Form.Group controlId="formEmail" className="mb-3">
               <Form.Label>Email address</Form.Label>
               <InputGroup>
@@ -112,7 +110,7 @@ const Login = () => {
               <Link
                 className="text-primary d-block d-md-inline"
                 style={{ fontWeight: 700 }}
-                to="/signup"
+                to="/register"
               >
                 Click here to register
               </Link>
@@ -122,7 +120,7 @@ const Login = () => {
               <Link
                 className="text-primary d-block d-md-inline"
                 style={{ fontWeight: 700 }}
-                to="/forgot-password"
+                to="/forgotPassword"
               >
                 Click here to reset
               </Link>

@@ -33,7 +33,7 @@ function ForgotPassword() {
           xs={12}
           md={6}
           className="d-flex flex-column align-items-center justify-content-center p-2"
-          style={{ minHeight: "50vh", marginTop: "5rem" }}
+          style={{ minHeight: "40vh", marginTop: "1rem" }}
         >
           <img
             src={logo}
@@ -42,7 +42,7 @@ function ForgotPassword() {
             style={{ maxWidth: "150px" }}
           />
           <h1 className="text-center">Forgot Your Password?</h1>
-          <p className="text-center">
+          <p className="text-center fw-medium">
             Don&apos;t worry, we&apos;ll help you reset it. Just enter your
             email below and follow the instructions.
           </p>
