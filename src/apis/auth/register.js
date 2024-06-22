@@ -1,5 +1,5 @@
 import axios from "axios";
-import { backendUrl } from "../constants";
+import { backendUrl } from "../constants.js";
 
 export const userSignUp = async (userData) => {
   try {
