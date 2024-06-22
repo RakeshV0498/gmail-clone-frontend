@@ -58,10 +58,13 @@ function PasswordReset() {
   }, [successMessage, navigate]);
 
   return (
-    <Container fluid className="vh-100">
-      <Row className="h-100 align-items-center">
-        {/* Left Column */}
-        <Col md={6} className="p-4">
+    <Container fluid className="vh-100 d-flex align-items-center p-0">
+      <Row className="w-100 m-0">
+        <Col
+          md={6}
+          xs={12}
+          className="d-flex flex-column align-items-center justify-content-center p-2"
+        >
           <img
             src={logo}
             alt="Logo"
@@ -74,9 +77,14 @@ function PasswordReset() {
             email below and follow the instructions.
           </p>
         </Col>
-        {/* Right Column */}
-        <Col md={6} className="p-4">
-          <Form onSubmit={handleSubmit}>
+
+        <Col
+          xs={12}
+          md={6}
+          className="d-flex flex-column align-items-center justify-content-center p-4 shadow-lg"
+          style={{ minHeight: "50vh" }}
+        >
+          <Form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
               <div className="input-group">
@@ -127,7 +135,11 @@ function PasswordReset() {
                 </Alert>
               )}
             </Form.Group>
-            <Button variant="primary" type="submit" className="mt-3 w-100">
+            <Button
+              variant="primary"
+              type="submit"
+              className="mt-3 w-100 fw-bold"
+            >
               Reset
             </Button>
             {successMessage && (
