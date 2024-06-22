@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import { useFormContext } from "../context/FormContext";
 import logo from "../assets/logo-gmail.png";
+import { Link } from "react-router-dom";
 
 const RegisterSchema = Yup.object().shape({
   firstName: Yup.string().required("First name is required"),
@@ -336,6 +337,10 @@ const Register = () => {
                 >
                   Sign Up
                 </Button>
+                <div className="mt-5 text-center fw-bold">
+                  Already have an account{"   "}
+                  <Link to="/signin">Click here to login</Link>
+                </div>
               </Form>
             )}
           </Formik>

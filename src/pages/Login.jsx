@@ -9,7 +9,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import logo from "../assets/logo-gmail.png"; // Replace with your logo path
+import logo from "/gmail.svg"; // Replace with your logo path
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -28,25 +28,34 @@ const Login = () => {
   };
 
   return (
-    <Container fluid className="vh-100 d-flex align-items-center">
-      <Row className="w-100">
+    <Container fluid className="vh-100 d-flex align-items-center p-0">
+      <Row className="w-100 m-0 ">
         <Col
+          xs={12}
           md={6}
-          className="d-flex flex-column align-items-center justify-content-center"
+          className="d-flex flex-column align-items-center justify-content-center p-4  bg-light-subtle"
+          style={{ minHeight: "50vh", marginTop: "5rem" }}
         >
           <img
             src={logo}
             alt="Logo"
-            style={{ width: "150px", marginBottom: "20px" }}
+            className="img-fluid mt-3"
+            style={{ maxWidth: "150px" }}
           />
           <h1 className="text-center">Welcome Back!</h1>
           <p className="text-center">Please login to your account.</p>
         </Col>
         <Col
+          xs={12}
           md={6}
-          className="d-flex flex-column align-items-center justify-content-center"
+          className="d-flex flex-column align-items-center justify-content-center bg-white p-4 shadow-lg fw-bold"
+          style={{ minHeight: "50vh" }}
         >
-          <Form onSubmit={handleSubmit} className="w-75">
+          <Form
+            onSubmit={handleSubmit}
+            className="w-100"
+            style={{ maxWidth: "400px" }}
+          >
             <Form.Group controlId="formEmail" className="mb-3">
               <Form.Label>Email address</Form.Label>
               <InputGroup>
@@ -57,6 +66,7 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="Enter email"
                   required
+                  className="shadow-sm rounded"
                 />
               </InputGroup>
             </Form.Group>
@@ -70,10 +80,12 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="Password"
                   required
+                  className="shadow-sm rounded"
                 />
                 <Button
                   variant="outline-secondary"
                   onClick={() => setShowPassword(!showPassword)}
+                  className="shadow-sm rounded-end "
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </Button>
@@ -85,32 +97,35 @@ const Login = () => {
                 label="Show Password"
                 checked={showPassword}
                 onChange={() => setShowPassword(!showPassword)}
+                className="user-select-none"
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className="w-100">
+            <Button
+              variant="primary"
+              type="submit"
+              className="w-100 shadow-sm rounded mb-3 fw-bold"
+            >
               Login
             </Button>
-            <div className="mt-3 text-center">
-              <p>
-                Don&apos;t have an account?
-                <Link
-                  style={{ fontWeight: 700 }}
-                  to="/signup"
-                  className="d-block"
-                >
-                  Click here to register
-                </Link>
-              </p>
-              <p>
-                Forgot your password? <br />
-                <Link
-                  style={{ fontWeight: 700 }}
-                  to="/forgot-password"
-                  className="d-block"
-                >
-                  Click here to reset
-                </Link>
-              </p>
+            <div className="mt-3 text-center fw-bold">
+              Don&apos;t have an account?{" "}
+              <Link
+                className="text-primary d-block d-md-inline"
+                style={{ fontWeight: 700 }}
+                to="/signup"
+              >
+                Click here to register
+              </Link>
+            </div>
+            <div className="mt-3 text-center fw-bold">
+              Forgot your password?{" "}
+              <Link
+                className="text-primary d-block d-md-inline"
+                style={{ fontWeight: 700 }}
+                to="/forgot-password"
+              >
+                Click here to reset
+              </Link>
             </div>
           </Form>
         </Col>
