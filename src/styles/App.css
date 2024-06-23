@@ -4,6 +4,7 @@ body {
   font-family: "Roboto", sans-serif !important;
   font-optical-sizing: auto;
 }
+
 /* Responsive styles for text */
 @media (max-width: 768px) {
   .hero-title {
@@ -16,5 +17,53 @@ body {
 
   .hero-button {
     font-size: 1rem;
+  }
+}
+
+.custom-popover {
+  top: 10px !important; /* Adjust this value to move the popover up or down */
+  left: auto !important; /* Ensure it's aligned with the avatar */
+  position: absolute !important;
+  z-index: 1000;
+  width: 200px; /* Adjust as needed */
+  transform: translateX(-50%); /* Center align the popover */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    justify-content: space-between !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar .form-inline {
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+  .custom-nav {
+    flex-grow: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .navbar-brand {
+    flex-grow: 1;
+  }
+  .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
