@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Container, Row, Col, Button, Form, Alert } from "react-bootstrap";
 import { FaEnvelope } from "react-icons/fa";
-import logo from "/gmail.svg"; // Replace with your logo path
+import logo from "/gmail.svg";
+import { forgotPassword } from "../apis/auth/forgotPassword";
+import { useNavigate } from "react-router-dom";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,16 +17,16 @@ function ForgotPassword() {
     setError("");
     console.log(email);
 
-    // try {
-    //   const response = await forgotPassword(email);
-    //   setMessage(response.msg);
-    //   setTimeout(() => {
-    //     navigate("/");
-    //   }, 5000);
-    // } catch (err) {
-    //   console.log(err);
-    //   setError(err?.response?.data?.msg);
-    // }
+    try {
+      const response = await forgotPassword(email);
+      setMessage(response.msg);
+      setTimeout(() => {
+        navigate("/");
+      }, 5000);
+    } catch (err) {
+      console.log(err);
+      setError(err?.response?.data?.msg);
+    }
   };
 
   return (
