@@ -1,10 +1,9 @@
 import axios from "axios";
-import { backendURL } from "../apis/constants.js";
+import { backendUrl } from "../constants";
 
 export const forgotPassword = async (email) => {
   try {
-    console.log(`${backendURL}forgot-password`);
-    const response = await axios.post(`${backendURL}forgot-password`, {
+    const response = await axios.post(`${backendUrl}forgot-password`, {
       email,
     });
     return await response.data;
