@@ -82,7 +82,7 @@ const Register = () => {
   };
 
   return (
-    <Row className="vh-100 mb-5">
+    <Row className="vh-100 mb-5 mx-0">
       <Col
         md={6}
         className="d-flex flex-column align-items-center justify-content-center mb-3"
