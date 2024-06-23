@@ -10,6 +10,7 @@ import {
 import PropTypes from "prop-types";
 import { useNavigate, useParams } from "react-router-dom";
 import logo from "/gmail.svg"; // Replace with your logo path
+import { resetPassword } from "../apis/auth/resetPassword";
 
 function PasswordReset() {
   const { token } = useParams();
@@ -41,9 +42,18 @@ function PasswordReset() {
     if (passwords.password !== passwords.confirmPassword) {
       setValidationError("Passwords do not match");
     } else {
-      console.log(passwords.password);
-      console.log(token);
-      // Add logic for password reset here
+      try {
+        const response = await resetPassword(token, passwords.password);
+        setSuccessMessage(response.message);
+        setPasswords({
+          password: "",
+          confirmPassword: "",
+        });
+        setValidationError("");
+      } catch (error) {
+        console.error("Error resetting password:", error);
+        setErrorMessage(error.response?.data?.message || "An error occurred");
+      }
     }
   };
 
