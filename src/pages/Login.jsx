@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <Container fluid className="d-flex align-items-center p-0">
+    <Container fluid className=" vh-100 d-flex align-items-center p-0">
       <Row className="w-100">
         <Col
           xs={12}
