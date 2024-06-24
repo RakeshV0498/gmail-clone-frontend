@@ -5,6 +5,15 @@ body {
   font-optical-sizing: auto;
 }
 
+.hero-title {
+  font-size: 4.5rem;
+  text-overflow: clip;
+}
+
+.hero-text {
+  font-size: 1.5rem;
+}
+
 /* Responsive styles for text */
 @media (max-width: 768px) {
   .hero-title {
