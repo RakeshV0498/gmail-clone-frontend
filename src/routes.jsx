@@ -6,6 +6,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import PasswordReset from "./pages/ResetPassword";
 
 import MyNavbar from "./pages/Navigationbar";
+import MainLayout from "./layouts/MainLayout";
+import ProtectedRoute from "./protectedRoute";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +19,10 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/resetPassword/:token" element={<PasswordReset />} />
+        <Route
+          path="/mail/*"
+          element={<ProtectedRoute component={<MainLayout />} />}
+        />
       </Routes>
     </BrowserRouter>
   );
