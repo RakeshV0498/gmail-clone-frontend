@@ -76,3 +76,30 @@ body {
     align-items: center;
   }
 }
+/* styles.css */
+.custom-popover {
+  max-width: 300px;
+}
+
+.avatar-wrapper {
+  display: inline-block;
+}
+
+.navbar-brand img {
+  margin-right: 10px;
+}
+
+.email-list .list-group-item {
+  cursor: pointer;
+}
+
+.email-view {
+  border-left: 1px solid #ddd;
+}
+
+@media (max-width: 767px) {
+  .email-view {
+    border-left: none;
+    margin-top: 15px;
+  }
+}
