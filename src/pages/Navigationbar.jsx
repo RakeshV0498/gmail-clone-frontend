@@ -4,9 +4,6 @@ import {
   Container,
   Nav,
   Navbar,
-  Form,
-  FormControl,
-  InputGroup,
   Tooltip,
   OverlayTrigger,
   Popover,
@@ -15,7 +12,6 @@ import {
 import {
   BsBoxArrowInRight,
   BsFillPersonFill,
-  BsSearch,
   BsBoxArrowRight,
 } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
@@ -94,40 +90,51 @@ function MyNavbar() {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" className="custom-nav">
+      <Navbar bg="light" expand="lg" className="custom-nav" sticky="top">
         <Container
           fluid
           className="d-flex align-items-center justify-content-between"
         >
-          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-            <img
-              src={logo}
-              alt="gmail-logo"
-              style={{ height: "30px", marginRight: "10px" }}
-            />
-            <span
-              className={`d-none d-lg-inline ${
-                isAuthenticated ? "d-none" : ""
-              }`}
+          {isAuthenticated ? (
+            <Navbar.Brand
+              as={Link}
+              to="/mail/inbox"
+              className="d-flex align-items-center"
             >
-              Gmail Clone
-            </span>
-          </Navbar.Brand>
-          {isAuthenticated && (
-            <Form className="d-none d-lg-flex flex-grow-1 mx-3">
-              <InputGroup className="w-100">
-                <InputGroup.Text>
-                  <BsSearch />
-                </InputGroup.Text>
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="rounded"
-                  aria-label="Search"
-                />
-              </InputGroup>
-            </Form>
+              <img
+                src={logo}
+                alt="gmail-logo"
+                style={{ height: "30px", marginRight: "10px" }}
+              />
+              <span
+                className={`d-none d-lg-inline ${
+                  isAuthenticated ? "d-none" : ""
+                }`}
+              >
+                Gmail Clone
+              </span>
+            </Navbar.Brand>
+          ) : (
+            <Navbar.Brand
+              as={Link}
+              to="/"
+              className="d-flex align-items-center"
+            >
+              <img
+                src={logo}
+                alt="gmail-logo"
+                style={{ height: "30px", marginRight: "10px" }}
+              />
+              <span
+                className={`d-none d-lg-inline ${
+                  isAuthenticated ? "d-none" : ""
+                }`}
+              >
+                Gmail Clone
+              </span>
+            </Navbar.Brand>
           )}
+
           <Nav className="align-items-center gap-3">
             {!isAuthenticated ? (
               <>
@@ -145,19 +152,6 @@ function MyNavbar() {
               </>
             ) : (
               <>
-                <Form className="d-lg-none my-2 w-100">
-                  <InputGroup className="w-100">
-                    <InputGroup.Text>
-                      <BsSearch />
-                    </InputGroup.Text>
-                    <FormControl
-                      type="search"
-                      placeholder="Search"
-                      className="rounded"
-                      aria-label="Search"
-                    />
-                  </InputGroup>
-                </Form>
                 <OverlayTrigger
                   placement="bottom"
                   delay={{ show: 250, hide: 400 }}
