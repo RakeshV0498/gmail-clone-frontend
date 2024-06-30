@@ -76,6 +76,14 @@ Validation rules include:
 
 Based on the first name and last name provided, the application generates two possible email suggestions. Users can choose one of these suggestions or enter a custom email address.
 
+### Demo Login Accounts:
+
+Vrakesh4141@gmail.com
+Rakesh
+
+vigneshV6412@gmail.com
+12345678
+
 ## Project Structure
 
 The project's structure is as follows:
