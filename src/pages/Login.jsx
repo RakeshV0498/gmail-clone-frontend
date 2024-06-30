@@ -33,7 +33,7 @@ const Login = () => {
       if (response.code === 1) {
         localStorage.setItem("Authenticated", "true");
         localStorage.setItem("token", response.user);
-        navigate("/");
+        navigate("/mail/inbox");
       } else {
         setMessage(response.message || "Login failed");
       }
