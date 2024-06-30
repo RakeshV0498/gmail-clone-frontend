@@ -27,6 +27,9 @@ const RegisterSchema = Yup.object().shape({
     .max(new Date().getFullYear(), "Invalid year")
     .required("Year is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
+  recoveryEmail: Yup.string()
+    .email("Invalid email")
+    .required("Recovery email is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
@@ -121,6 +124,7 @@ const Register = () => {
               month: "",
               year: "",
               email: "",
+              recoveryEmail: "",
               password: "",
               confirmPassword: "",
             }}
@@ -132,6 +136,7 @@ const Register = () => {
                 lastName: values.lastName,
                 dateOfBirth: birthDate,
                 email: values.email,
+                recoveryEmail: values.recoveryEmail,
                 password: values.password,
               };
               setSubmitting(false);
@@ -315,6 +320,24 @@ const Register = () => {
                     </InputGroup>
                     <ErrorMessage
                       name="email"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </Col>
+                </Row>
+                <Row className="mb-3">
+                  <Col xs={12}>
+                    <InputGroup>
+                      <InputGroup.Text>Recovery Email</InputGroup.Text>
+                      <Field
+                        as={FormControl}
+                        name="recoveryEmail"
+                        placeholder="Recovery Email"
+                        type="email"
+                      />
+                    </InputGroup>
+                    <ErrorMessage
+                      name="recoveryEmail"
                       component="div"
                       className="text-danger"
                     />
