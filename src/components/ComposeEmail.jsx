@@ -42,7 +42,6 @@ const ComposeEmail = ({ show, handleClose, draftData }) => {
 
   useEffect(() => {
     if (draftData) {
-      console.log(typeof draftData);
       const draftEmail = state.drafts.emails.find(
         (email) => email.id === draftData
       );

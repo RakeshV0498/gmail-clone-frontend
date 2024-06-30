@@ -42,7 +42,6 @@ const initialState = {
 const emailReducer = (state, action) => {
   switch (action.type) {
     case "SELECT_EMAIL": {
-      console.log(action);
       return {
         ...state,
         [action.folder]: { ...state[action.folder], selectedEmail: action.id },
@@ -105,7 +104,6 @@ const emailReducer = (state, action) => {
       const selectedEmail = state[action.folder].emails.find(
         (email) => email.id === state[action.folder].selectedEmail
       );
-      console.log(selectedEmail);
       return {
         ...state,
         replyEmail: {
